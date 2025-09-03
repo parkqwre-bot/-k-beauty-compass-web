@@ -1,13 +1,13 @@
 self.__BUILD_MANIFEST = {
   "/_error": [
-    "./static/chunks/90825ab65d30495d.js"
+    "./static/chunks/46cffcad2b3bb3c8.js"
   ],
   "__rewrites": {
     "afterFiles": [],
     "beforeFiles": [
       {
         "source": "/-k-beauty-compass-web//_next/:path+",
-        "destination": "/_next/:path+"
+        "destination": "/-k-beauty-compass-web/_next/:path+"
       }
     ],
     "fallback": []
