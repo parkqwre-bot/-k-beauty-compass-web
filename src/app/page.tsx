@@ -1,103 +1,296 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
+import { getRecommendationTranslation, getTranslation } from "@/lib/localization";
+import { getRecommendations } from "@/lib/recommendationService";
+import { Product } from "@/data/products";
+import ProductCard from "@/components/ProductCard";
+import AdBanner from "@/components/AdBanner";
+
+interface QuizQuestion {
+  questionText: string;
+  options: string[];
+  allowMultipleSelection: boolean;
+}
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [appState, setAppState] = useState("onboarding"); // "onboarding", "quiz", "results"
+  const [quizAnswers, setQuizAnswers] = useState<{ [key: number]: number[] }>({});
+  const [recommendedProducts, setRecommendedProducts] = useState<Product[]>([]);
+  const [currentLocale, setCurrentLocale] = useState<"en" | "ko">("en"); // Default to English
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+  const questions: QuizQuestion[] = [
+    {
+      questionText: getTranslation(currentLocale, "whichCountryDoYouResideIn"),
+      options: ["South Korea", "United States"],
+      allowMultipleSelection: false,
+    },
+    {
+      questionText: getTranslation(currentLocale, "afterWashingYourFaceYourSkinFeels"),
+      options: [
+        getTranslation(currentLocale, "tightAndDry"),
+        getTranslation(currentLocale, "smoothAndNormal"),
+        getTranslation(currentLocale, "shinyAndOily"),
+        getTranslation(currentLocale, "notSure"),
+      ],
+      allowMultipleSelection: false,
+    },
+    {
+      questionText: getTranslation(currentLocale, "whatAreYourBiggestSkinWorries"),
+      options: [
+        getTranslation(currentLocale, "acneBlemishes"),
+        getTranslation(currentLocale, "pores"),
+        getTranslation(currentLocale, "wrinkles"),
+        getTranslation(currentLocale, "redness"),
+        getTranslation(currentLocale, "dullness"),
+      ],
+      allowMultipleSelection: true,
+    },
+    {
+      questionText: getTranslation(currentLocale, "areYouSensitiveToSpecifics"),
+      options: [
+        getTranslation(currentLocale, "verySensitive"),
+        getTranslation(currentLocale, "somewhatSensitive"),
+        getTranslation(currentLocale, "notSensitive"),
+        getTranslation(currentLocale, "notSure"),
+      ],
+      allowMultipleSelection: false,
+    },
+    {
+      questionText: getTranslation(currentLocale, "howMuchTimeForSkincare"),
+      options: [
+        getTranslation(currentLocale, "lessThan5Minutes"),
+        getTranslation(currentLocale, "fiveToTenMinutes"),
+        getTranslation(currentLocale, "moreThan10Minutes"),
+      ],
+      allowMultipleSelection: false,
+    },
+    {
+      questionText: getTranslation(currentLocale, "personalColor"),
+      options: [
+        getTranslation(currentLocale, "warmTone"),
+        getTranslation(currentLocale, "coolTone"),
+        getTranslation(currentLocale, "notSure"),
+      ],
+      allowMultipleSelection: false,
+    },
+  ];
+
+  const handleGetStarted = () => {
+    setAppState("quiz");
+  };
+
+  const handleQuizComplete = async (answers: { [key: number]: number[] }) => {
+    setQuizAnswers(answers);
+    setAppState("loading");
+
+    const isUS = answers[0]?.[0] === 1; // Assuming 0 is South Korea, 1 is United States
+    const products = await getRecommendations(answers, isUS);
+    setRecommendedProducts(products);
+    setAppState("results");
+  };
+
+  const handleLanguageChange = (locale: "en" | "ko") => {
+    setCurrentLocale(locale);
+  };
+
+  const renderOnboarding = () => (
+    <main className="flex min-h-screen flex-col items-center justify-center p-24">
+      <div className="absolute top-4 right-4">
+        <select
+          onChange={(e) => handleLanguageChange(e.target.value as "en" | "ko")}
+          value={currentLocale}
+          className="p-2 rounded-md border"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+          <option value="en">English</option>
+          <option value="ko">한국어</option>
+        </select>
+      </div>
+      <h1 className="text-5xl font-bold text-pink-500 mb-8">
+        {getTranslation(currentLocale, "kBeautyCompass")}
+      </h1>
+      <p className="text-xl text-gray-700 mb-12 text-center">
+        {getTranslation(currentLocale, "stopSearchingStartDiscovering")}
+      </p>
+      <button
+        onClick={handleGetStarted}
+        className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full text-lg"
+      >
+        {getTranslation(currentLocale, "getStarted")}
+      </button>
+      <button
+        onClick={() => setAppState("quiz")}
+        className="mt-4 text-pink-500 hover:underline"
+      >
+        {getTranslation(currentLocale, "skip")}
+      </button>
+    </main>
+  );
+
+  const renderQuiz = () => (
+    <QuizComponent
+      questions={questions}
+      onQuizComplete={handleQuizComplete}
+      currentLocale={currentLocale}
+    />
+  );
+
+  const renderResults = () => (
+    <div className="min-h-screen p-8">
+      <h2 className="text-3xl font-bold text-center mb-8">
+        {getTranslation(currentLocale, "yourPersonalizedRoutine")}
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {recommendedProducts.map((product) => (
+          <ProductCard
+            key={product.id}
+            product={{
+              ...product,
+              recommendationKey: getRecommendationTranslation(
+                currentLocale,
+                product.recommendationKey
+              ),
+            }}
+            isUS={quizAnswers[0]?.[0] === 1}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        ))}
+      </div>
+      <div className="mt-8">
+        <AdBanner dataAdSlot="6300978111" /> {/* TODO: Replace with your actual AdSense ad unit ID */}
+      </div>
     </div>
   );
+
+  const renderLoading = () => (
+    <div className="flex min-h-screen flex-col items-center justify-center p-24">
+      <h1 className="text-3xl font-bold text-pink-500 mb-8">
+        {getTranslation(currentLocale, "findingYourPerfectMatch")}
+      </h1>
+      <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-pink-500"></div>
+    </div>
+  );
+
+  switch (appState) {
+    case "onboarding":
+      return renderOnboarding();
+    case "quiz":
+      return renderQuiz();
+    case "loading":
+      return renderLoading();
+    case "results":
+      return renderResults();
+    default:
+      return renderOnboarding();
+  }
 }
+
+interface QuizComponentProps {
+  questions: QuizQuestion[];
+  onQuizComplete: (answers: { [key: number]: number[] }) => void;
+  currentLocale: "en" | "ko";
+}
+
+const QuizComponent: React.FC<QuizComponentProps> = ({
+  questions,
+  onQuizComplete,
+  currentLocale,
+}) => {
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [selectedAnswers, setSelectedAnswers] = useState<{ [key: number]: number[] }>({});
+
+  const currentQuestion = questions[currentQuestionIndex];
+
+  const handleOptionSelect = (optionIndex: number) => {
+    setSelectedAnswers((prev) => {
+      const newAnswers = { ...prev };
+      if (currentQuestion.allowMultipleSelection) {
+        const current = newAnswers[currentQuestionIndex] || [];
+        if (current.includes(optionIndex)) {
+          newAnswers[currentQuestionIndex] = current.filter(
+            (item) => item !== optionIndex
+          );
+        } else {
+          newAnswers[currentQuestionIndex] = [...current, optionIndex];
+        }
+      } else {
+        newAnswers[currentQuestionIndex] = [optionIndex];
+      }
+      return newAnswers;
+    });
+  };
+
+  const handleNext = () => {
+    // Basic validation: ensure an answer is selected for non-multiple choice questions
+    if (
+      !currentQuestion.allowMultipleSelection &&
+      (!selectedAnswers[currentQuestionIndex] ||
+        selectedAnswers[currentQuestionIndex]?.length === 0)
+    ) {
+      alert(getTranslation(currentLocale, "selectAnAnswer")); // TODO: Localize this alert
+      return;
+    }
+
+    if (currentQuestionIndex < questions.length - 1) {
+      setCurrentQuestionIndex((prev) => prev + 1);
+    } else {
+      onQuizComplete(selectedAnswers);
+    }
+  };
+
+  const handlePrevious = () => {
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex((prev) => prev - 1);
+    }
+  };
+
+  return (
+    <main className="flex min-h-screen flex-col items-center justify-center p-4">
+      <div className="w-full max-w-md">
+        <div className="w-full bg-gray-200 rounded-full h-2.5 mb-4">
+          <div
+            className="bg-pink-500 h-2.5 rounded-full"
+            style={{
+              width: `${((currentQuestionIndex + 1) / questions.length) * 100}%`,
+            }}
+          ></div>
+        </div>
+        <h2 className="text-2xl font-bold mb-6 text-center">
+          {currentQuestion.questionText}
+        </h2>
+        <div className="flex flex-col space-y-3">
+          {currentQuestion.options.map((option, index) => (
+            <button
+              key={index}
+              onClick={() => handleOptionSelect(index)}
+              className={`w-full px-4 py-3 border rounded-lg text-lg transition-all duration-200
+                ${selectedAnswers[currentQuestionIndex]?.includes(index)
+                  ? "bg-pink-500 text-white border-pink-500"
+                  : "bg-white text-gray-800 border-gray-300 hover:border-pink-300"}
+              `}
+            >
+              {option}
+            </button>
+          ))}
+        </div>
+        <div className="mt-8 flex justify-between">
+          {currentQuestionIndex > 0 && (
+            <button
+              onClick={handlePrevious}
+              className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-6 rounded-full"
+            >
+              {getTranslation(currentLocale, "previous")}
+            </button>
+          )}
+          <button
+            onClick={handleNext}
+            className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-6 rounded-full ml-auto"
+          >
+            {currentQuestionIndex === questions.length - 1
+              ? getTranslation(currentLocale, "finish")
+              : getTranslation(currentLocale, "next")}
+          </button>
+        </div>
+      </div>
+    </main>
+  );
+};
