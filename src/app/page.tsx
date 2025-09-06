@@ -124,6 +124,9 @@ export default function Home() {
       >
         {getTranslation(currentLocale, "skip")}
       </button>
+      <div className="absolute bottom-4 text-center text-xs text-gray-500 px-4">
+        <p>{getTranslation(currentLocale, "affiliateDisclaimer")}</p>
+      </div>
     </main>
   );
 
