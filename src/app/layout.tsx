@@ -37,6 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta name="google-site-verification" content="eS5S_AgYDcsnxJZRJG8CjG6wCR1qCBnuSWgFvfYXkls" />
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ADSENSE_PUBLISHER_ID"
           crossOrigin="anonymous"></script>
       </head>
