@@ -2,16 +2,16 @@ import { getAllPostIds, getPostData } from '@/lib/posts';
 
 // This function gets called at build time
 export async function generateStaticParams() {
-  const paths = getAllPostIds();
+  const paths = getAllPostIds(['en', 'ko']); // Pass all supported locales
   return paths;
 }
 
 type Props = {
-  params: { slug: string };
+  params: { slug: string; locale: string }; // Add locale to params
 };
 
 export default async function BlogPostPage({ params }: Props) {
-  const postData = await getPostData(params.slug);
+  const postData = await getPostData(params.slug, params.locale); // Pass locale to getPostData
 
   return (
     <article className="container mx-auto px-4 py-8">
