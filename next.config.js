@@ -2,7 +2,7 @@
 const nextConfig = {
   output: 'export',
   turbopack: {
-    root: 'C:\\Users\\kyr73\\k-beauty-compass-web',
+    root: 'C:\Users\kyr73\k-beauty-compass-web',
   },
 };
 
