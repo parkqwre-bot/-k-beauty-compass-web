@@ -1,9 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: 'export',
-  turbopack: {
-    root: 'C:\Users\kyr73\k-beauty-compass-web',
-  },
-};
+const nextConfig = {};
 
 module.exports = nextConfig;
