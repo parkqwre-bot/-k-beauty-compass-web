@@ -21,56 +21,56 @@ export default function Home() {
 
   const questions: QuizQuestion[] = [
     {
-      questionText: getTranslation(currentLocale, "whichCountryDoYouResideIn"),
+      questionText: String(getTranslation(currentLocale, "whichCountryDoYouResideIn")),
       options: ["South Korea", "United States"],
       allowMultipleSelection: false,
     },
     {
-      questionText: getTranslation(currentLocale, "afterWashingYourFaceYourSkinFeels"),
+      questionText: String(getTranslation(currentLocale, "afterWashingYourFaceYourSkinFeels")),
       options: [
-        getTranslation(currentLocale, "tightAndDry"),
-        getTranslation(currentLocale, "smoothAndNormal"),
-        getTranslation(currentLocale, "shinyAndOily"),
-        getTranslation(currentLocale, "notSure"),
+        String(getTranslation(currentLocale, "tightAndDry")),
+        String(getTranslation(currentLocale, "smoothAndNormal")),
+        String(getTranslation(currentLocale, "shinyAndOily")),
+        String(getTranslation(currentLocale, "notSure")),
       ],
       allowMultipleSelection: false,
     },
     {
-      questionText: getTranslation(currentLocale, "whatAreYourBiggestSkinWorries"),
+      questionText: String(getTranslation(currentLocale, "whatAreYourBiggestSkinWorries")),
       options: [
-        getTranslation(currentLocale, "acneBlemishes"),
-        getTranslation(currentLocale, "pores"),
-        getTranslation(currentLocale, "wrinkles"),
-        getTranslation(currentLocale, "redness"),
-        getTranslation(currentLocale, "dullness"),
+        String(getTranslation(currentLocale, "acneBlemishes")),
+        String(getTranslation(currentLocale, "pores")),
+        String(getTranslation(currentLocale, "wrinkles")),
+        String(getTranslation(currentLocale, "redness")),
+        String(getTranslation(currentLocale, "dullness")),
       ],
       allowMultipleSelection: true,
     },
     {
-      questionText: getTranslation(currentLocale, "areYouSensitiveToSpecifics"),
+      questionText: String(getTranslation(currentLocale, "areYouSensitiveToSpecifics")),
       options: [
-        getTranslation(currentLocale, "verySensitive"),
-        getTranslation(currentLocale, "somewhatSensitive"),
-        getTranslation(currentLocale, "notSensitive"),
-        getTranslation(currentLocale, "notSure"),
+        String(getTranslation(currentLocale, "verySensitive")),
+        String(getTranslation(currentLocale, "somewhatSensitive")),
+        String(getTranslation(currentLocale, "notSensitive")),
+        String(getTranslation(currentLocale, "notSure")),
       ],
       allowMultipleSelection: false,
     },
     {
-      questionText: getTranslation(currentLocale, "howMuchTimeForSkincare"),
+      questionText: String(getTranslation(currentLocale, "howMuchTimeForSkincare")),
       options: [
-        getTranslation(currentLocale, "lessThan5Minutes"),
-        getTranslation(currentLocale, "fiveToTenMinutes"),
-        getTranslation(currentLocale, "moreThan10Minutes"),
+        String(getTranslation(currentLocale, "lessThan5Minutes")),
+        String(getTranslation(currentLocale, "fiveToTenMinutes")),
+        String(getTranslation(currentLocale, "moreThan10Minutes")),
       ],
       allowMultipleSelection: false,
     },
     {
-      questionText: getTranslation(currentLocale, "personalColor"),
+      questionText: String(getTranslation(currentLocale, "personalColor")),
       options: [
-        getTranslation(currentLocale, "warmTone"),
-        getTranslation(currentLocale, "coolTone"),
-        getTranslation(currentLocale, "notSure"),
+        String(getTranslation(currentLocale, "warmTone")),
+        String(getTranslation(currentLocale, "coolTone")),
+        String(getTranslation(currentLocale, "notSure")),
       ],
       allowMultipleSelection: false,
     },
@@ -107,25 +107,25 @@ export default function Home() {
         </select>
       </div>
       <h1 className="text-5xl font-bold text-pink-500 mb-8">
-        {getTranslation(currentLocale, "kBeautyCompass")}
+        {String(getTranslation(currentLocale, "kBeautyCompass"))}
       </h1>
       <p className="text-xl text-gray-700 mb-12 text-center">
-        {getTranslation(currentLocale, "stopSearchingStartDiscovering")}
+        {String(getTranslation(currentLocale, "stopSearchingStartDiscovering"))}
       </p>
       <button
         onClick={handleGetStarted}
         className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full text-lg"
       >
-        {getTranslation(currentLocale, "getStarted")}
+        {String(getTranslation(currentLocale, "getStarted"))}
       </button>
       <button
         onClick={() => setAppState("quiz")}
         className="mt-4 text-pink-500 hover:underline"
       >
-        {getTranslation(currentLocale, "skip")}
+        {String(getTranslation(currentLocale, "skip"))}
       </button>
       <div className="absolute bottom-4 text-center text-xs text-gray-500 px-4">
-        <p>{getTranslation(currentLocale, "affiliateDisclaimer")}</p>
+        <p>{String(getTranslation(currentLocale, "affiliateDisclaimer"))}</p>
       </div>
     </main>
   );
@@ -141,7 +141,7 @@ export default function Home() {
   const renderResults = () => (
     <div className="min-h-screen p-8">
       <h2 className="text-3xl font-bold text-center mb-8">
-        {getTranslation(currentLocale, "yourPersonalizedRoutine")}
+        {String(getTranslation(currentLocale, "yourPersonalizedRoutine"))}
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {recommendedProducts.map((product) => (
@@ -149,10 +149,10 @@ export default function Home() {
             key={product.id}
             product={{
               ...product,
-              recommendationKey: getRecommendationTranslation(
+              recommendationKey: String(getRecommendationTranslation(
                 currentLocale,
                 product.recommendationKey
-              ),
+              )),
             }}
             isUS={quizAnswers[0]?.[0] === 1}
           />
@@ -167,7 +167,7 @@ export default function Home() {
   const renderLoading = () => (
     <div className="flex min-h-screen flex-col items-center justify-center p-24">
       <h1 className="text-3xl font-bold text-pink-500 mb-8">
-        {getTranslation(currentLocale, "findingYourPerfectMatch")}
+        {String(getTranslation(currentLocale, "findingYourPerfectMatch"))}
       </h1>
       <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-pink-500"></div>
     </div>
@@ -229,7 +229,7 @@ const QuizComponent: React.FC<QuizComponentProps> = ({
       (!selectedAnswers[currentQuestionIndex] ||
         selectedAnswers[currentQuestionIndex]?.length === 0)
     ) {
-      alert(getTranslation(currentLocale, "selectAnAnswer")); // TODO: Localize this alert
+      alert(String(getTranslation(currentLocale, "selectAnAnswer"))); // TODO: Localize this alert
       return;
     }
 
@@ -258,7 +258,7 @@ const QuizComponent: React.FC<QuizComponentProps> = ({
           ></div>
         </div>
         <h2 className="text-2xl font-bold mb-6 text-center">
-          {currentQuestion.questionText}
+          {String(currentQuestion.questionText)}
         </h2>
         <div className="flex flex-col space-y-3">
           {currentQuestion.options.map((option, index) => (
@@ -271,7 +271,7 @@ const QuizComponent: React.FC<QuizComponentProps> = ({
                   : "bg-white text-gray-800 border-gray-300 hover:border-pink-300"}
               `}
             >
-              {option}
+              {String(option)}
             </button>
           ))}
         </div>
@@ -281,7 +281,7 @@ const QuizComponent: React.FC<QuizComponentProps> = ({
               onClick={handlePrevious}
               className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-6 rounded-full"
             >
-              {getTranslation(currentLocale, "previous")}
+              {String(getTranslation(currentLocale, "previous"))}
             </button>
           )}
           <button
@@ -289,8 +289,8 @@ const QuizComponent: React.FC<QuizComponentProps> = ({
             className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-6 rounded-full ml-auto"
           >
             {currentQuestionIndex === questions.length - 1
-              ? getTranslation(currentLocale, "finish")
-              : getTranslation(currentLocale, "next")}
+              ? String(getTranslation(currentLocale, "finish"))
+              : String(getTranslation(currentLocale, "next"))}
           </button>
         </div>
       </div>
