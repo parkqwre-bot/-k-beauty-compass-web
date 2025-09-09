@@ -152,9 +152,9 @@ export default function Home() {
           />
         ))}
       </div>
-      <div className="mt-8">
-        <AdBanner dataAdSlot="6300978111" /> {/* TODO: Replace with your actual AdSense ad unit ID */}
-      </div>
+      {/* <div className="mt-8">
+        <AdBanner dataAdSlot="6300978111" />
+      </div> */}
     </div>
   );
 
