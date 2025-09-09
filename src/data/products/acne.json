@@ -1,0 +1,92 @@
+[
+  {
+    "id": 5,
+    "name": "닥터자르트 시카페어 크림",
+    "description": "피부 진정 및 재생에 효과적, 민감성 피부 적합.",
+    "imageUrl": "https://t2c.coupangcdn.com/thumbnails/remote/212x212ex/image/retail/images/5298882781245730-c23e5680-6f7d-4281-8bf0-0f558b0b5739.jpg",
+    "affiliateUrlCoupang": "https://link.coupang.com/a/cM7rr8",
+    "affiliateUrlAmazon": "",
+    "attributes": { "skinTypes": ["sensitive", "oily", "combination"], "concerns": ["acne"], "formulation": "cream" }
+  },
+  {
+    "id": 12,
+    "name": "닥터지 레드 블레미쉬 클리어 수딩 크림",
+    "description": "저자극, 트러블 진정용으로 많이 사용됨.",
+    "imageUrl": "https://thumbnail14.coupangcdn.com/thumbnails/remote/212x212ex/image/vendor_inventory/image_audit/stage/manual/3c1d5ec6-0aea-4087-8bf8-92b8e589a552_1750659497348.jpeg",
+    "affiliateUrlCoupang": "https://link.coupang.com/a/cM71k9",
+    "affiliateUrlAmazon": "",
+    "attributes": { "skinTypes": ["oily", "combination", "sensitive"], "concerns": ["acne"], "formulation": "cream" }
+  },
+  {
+    "id": 13,
+    "name": "어니언 앰플",
+    "description": "트러블 완화와 진정을 위한 앰플.",
+    "imageUrl": "https://thumbnail8.coupangcdn.com/thumbnails/remote/212x212ex/image/retail/images/38124538520974-880737f4-56d1-4744-b640-cd12ed2cbc2b.jpg",
+    "affiliateUrlCoupang": "https://link.coupang.com/a/cM71O7",
+    "affiliateUrlAmazon": "",
+    "attributes": { "skinTypes": ["oily", "combination"], "concerns": ["acne"], "formulation": "serum" }
+  },
+  {
+    "id": 14,
+    "name": "메디힐 티트리 세럼",
+    "description": "티트리 성분으로 진정 효과 우수.",
+    "imageUrl": "https://thumbnail8.coupangcdn.com/thumbnails/remote/320x320ex/image/retail/images/2025/02/04/10/4/faf8eb2c-6578-4d84-821a-0a518eac0231.jpg",
+    "affiliateUrlCoupang": "https://link.coupang.com/a/cM72wM",
+    "affiliateUrlAmazon": "",
+    "attributes": { "skinTypes": ["oily", "sensitive"], "concerns": ["acne"], "formulation": "serum" }
+  },
+  {
+    "id": 15,
+    "name": "닥터포헤어 트러블 진정 토너",
+    "description": "트러블성 피부를 위한 토너.",
+    "imageUrl": "https://t5a.coupangcdn.com/thumbnails/remote/212x212ex/image/vendor_inventory/79c0/cc51bdcc3b5756ddafb45125dba4710e577adacbe5f81c72bcb49a5c0f32.jpg",
+    "affiliateUrlCoupang": "https://link.coupang.com/a/cM72YB",
+    "affiliateUrlAmazon": "",
+    "attributes": { "skinTypes": ["oily", "combination"], "concerns": ["acne"], "formulation": "toner" }
+  },
+  {
+    "id": 16,
+    "name": "La Roche-Posay Effaclar Medicated Gel Cleanser",
+    "description": "여드름 피부용 클렌저로 인기.",
+    "imageUrl": "",
+    "affiliateUrlCoupang": "",
+    "affiliateUrlAmazon": "https://amzn.to/3K0mIHR",
+    "attributes": { "skinTypes": ["oily", "acne"], "concerns": ["acne"], "formulation": "cleanser" }
+  },
+  {
+    "id": 17,
+    "name": "IZDUM 여드름 패치",
+    "description": "트러블 부위에 붙여 사용하는 치료 패치.",
+    "imageUrl": "",
+    "affiliateUrlCoupang": "",
+    "affiliateUrlAmazon": "https://amzn.to/45XKqMd",
+    "attributes": { "skinTypes": [], "concerns": ["acne"], "formulation": "patch" }
+  },
+  {
+    "id": 18,
+    "name": "Paula’s Choice BHA Exfoliant",
+    "description": "각질 제거와 모공 관리에 도움.",
+    "imageUrl": "",
+    "affiliateUrlCoupang": "",
+    "affiliateUrlAmazon": "https://amzn.to/45Gx0FI",
+    "attributes": { "skinTypes": ["oily", "combination"], "concerns": ["acne", "pore"], "formulation": "liquid" }
+  },
+  {
+    "id": 19,
+    "name": "COSRX Acne Pimple Master Patch",
+    "description": "여드름 패치로 잘 알려짐.",
+    "imageUrl": "",
+    "affiliateUrlCoupang": "",
+    "affiliateUrlAmazon": "https://amzn.to/45KTjdr",
+    "attributes": { "skinTypes": [], "concerns": ["acne"], "formulation": "patch" }
+  },
+  {
+    "id": 20,
+    "name": "Murad Clarifying Cleanser",
+    "description": "저자극 여드름 클렌저.",
+    "imageUrl": "",
+    "affiliateUrlCoupang": "",
+    "affiliateUrlAmazon": "https://amzn.to/3HNq9RJ",
+    "attributes": { "skinTypes": ["oily", "sensitive"], "concerns": ["acne"], "formulation": "cleanser" }
+  }
+]
