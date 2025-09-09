@@ -147,13 +147,7 @@ export default function Home() {
         {recommendedProducts.map((product) => (
           <ProductCard
             key={product.id}
-            product={{
-              ...product,
-              recommendationKey: String(getRecommendationTranslation(
-                currentLocale,
-                product.recommendationKey
-              )),
-            }}
+            product={product}
             isUS={quizAnswers[0]?.[0] === 1}
           />
         ))}
