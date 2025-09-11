@@ -1,44 +1,23 @@
 ---
-title: 'Unlock Your Glow: 5 Must-Have K-Beauty Products for Beginners'
-date: '2025-09-12'
+title: '초보자를 위한 K-뷰티 필수 아이템 5가지'
+date: '2025-09-09'
 ---
 
-Diving into the world of K-Beauty can feel exciting yet overwhelming. With countless products and a famous 10-step routine, where do you even begin? Don't worry, we've got you covered. You don't need all ten products at once to achieve that coveted healthy glow.
+K-뷰티의 세계에 처음 오신 것을 환영합니다! 수많은 제품 앞에서 무엇부터 시작해야 할지 막막하신가요? 걱정 마세요. 당신의 화장대를 완벽하게 채워 줄 K-뷰티 입문용 필수 아이템 5가지를 소개합니다. 이 제품들만 있다면, 당신도 오늘부터 K-뷰티 전문가!
 
-Here are the 5 essential, must-have K-Beauty products that will build a solid foundation for your skincare journey.
+### 1. 클렌징 오일/밤
+한국 스킨케어의 핵심은 '이중 세안'입니다. 그 첫 단계인 클렌징 오일 또는 밤은 메이크업과 노폐물을 부드럽게 녹여줍니다.
 
-### 1. Oil-Based Cleanser
+### 2. 수분 토너
+세안 후 피부의 pH 밸런스를 맞추고 즉각적으로 수분을 공급하는 단계입니다. 닦아내는 토너(닦토)보다는, 여러 번 덧발라 흡수시키는 '찹토' 방식이 인기가 많습니다.
 
-**Why you need it:** The famous K-Beauty "double cleanse" starts here. An oil-based cleanser is crucial for melting away makeup, sunscreen, and excess sebum from your pores without stripping your skin of its natural moisture. It's the most effective way to get a truly deep clean.
+### 3. 에센스/세럼
+피부 고민(미백, 주름, 트러블 등)을 집중적으로 케어하는 고농축 제품입니다. 자신의 피부 타입에 맞는 기능성 제품을 선택하는 것이 중요합니다.
 
-**How to use it:** Gently massage it onto your dry face for about a minute, then add a little water to emulsify it into a milky texture before rinsing off.
+### 4. 수분 크림
+스킨케어의 마지막 단계에서 수분이 날아가지 않도록 꽉 잠가주는 보습막 역할을 합니다. 가벼운 젤 타입부터 꾸덕한 밤 타입까지 다양합니다.
 
-### 2. Water-Based (Foam) Cleanser
+### 5. 선크림
+K-뷰티에서 가장, 가장 중요한 단계입니다. 1년 365일, 비가 오나 눈이 오나 선크림은 필수입니다. 피부 노화의 주범인 자외선으로부터 피부를 보호하세요.
 
-**Why you need it:** This is the second step of the double cleanse. After the oil cleanser has removed all the oil-based impurities, the water-based cleanser washes away any remaining residue, like sweat and dirt, leaving your skin perfectly clean and prepped for the next steps.
-
-**How to use it:** Lather a small amount in your hands and gently wash your face. Follow up immediately with your toner.
-
-### 3. Toner
-
-**Why you need it:** Forget the harsh, alcohol-based toners of the past. Korean toners are all about hydration and balancing your skin's pH level after cleansing. They provide the first layer of moisture and help your other products absorb better.
-
-**How to use it:** Pat it gently into your skin with your hands or use a cotton pad.
-
-### 4. Moisturizer
-
-**Why you need it:** This is a non-negotiable step for all skin types! A good moisturizer seals in all the hydration from your previous steps and strengthens your skin's barrier. This protects your skin from environmental damage and prevents moisture loss throughout the day.
-
-**How to use it:** Gently apply an appropriate amount to your face and neck as the final step in your evening routine, or before sunscreen in the morning.
-
-### 5. Sunscreen
-
-**Why you need it:** Sunscreen is the single most important product for preventing premature aging, dark spots, and protecting your skin from sun damage. Korean sunscreens are famous for their lightweight, cosmetically elegant formulas that feel nothing like the thick, greasy sunblocks you might be used to.
-
-**How to use it:** Apply it generously as the very last step of your morning skincare routine, every single day.
-
-### Start Your K-Beauty Journey!
-
-With these five essential items, you have a complete and effective skincare routine. Once you're comfortable, you can start exploring other products like serums, essences, and exfoliants to target your specific skin concerns.
-
-**Ready to find the perfect products for your skin type?** Head over to our **K-Beauty Compass** to get personalized recommendations and build your dream routine!
+이 5가지 아이템으로 시작하여 당신만의 K-뷰티 루틴을 만들어보세요!
