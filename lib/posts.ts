@@ -4,29 +4,22 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 
-const postsDirectory = path.join(process.cwd(), 'posts');
-
-export function getSortedPostsData() {
-  // Get file names under /posts
+// Gets the data for all posts in a specific language, sorted by date
+export function getSortedPostsData(lang: string) {
+  const postsDirectory = path.join(process.cwd(), 'posts', lang);
   const fileNames = fs.readdirSync(postsDirectory);
   const allPostsData = fileNames.map((fileName) => {
-    // Remove ".md" from file name to get id
     const id = fileName.replace(/\.md$/, '');
-
-    // Read markdown file as string
     const fullPath = path.join(postsDirectory, fileName);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
-
-    // Use gray-matter to parse the post metadata section
     const matterResult = matter(fileContents);
 
-    // Combine the data with the id
     return {
       id,
       ...(matterResult.data as { date: string; title: string }),
     };
   });
-  // Sort posts by date
+
   return allPostsData.sort((a, b) => {
     if (a.date < b.date) {
       return 1;
@@ -36,31 +29,40 @@ export function getSortedPostsData() {
   });
 }
 
+// Gets all possible paths for all posts in all languages for static generation
 export function getAllPostIds() {
-  const fileNames = fs.readdirSync(postsDirectory);
-  return fileNames.map((fileName) => {
-    return {
-      params: {
-        slug: fileName.replace(/\.md$/, ''),
-      },
-    };
-  });
+  const languages = ['en', 'ko'];
+  let allPaths: { params: { lang: string; slug: string } }[] = [];
+
+  for (const lang of languages) {
+    const postsDirectory = path.join(process.cwd(), 'posts', lang);
+    if (fs.existsSync(postsDirectory)) {
+      const fileNames = fs.readdirSync(postsDirectory);
+      const paths = fileNames.map((fileName) => ({
+        params: {
+          lang,
+          slug: fileName.replace(/\.md$/, ''),
+        },
+      }));
+      allPaths = allPaths.concat(paths);
+    }
+  }
+  return allPaths;
 }
 
-export async function getPostData(slug: string) {
+// Gets the content of a specific post for a specific language
+export async function getPostData(lang: string, slug: string) {
+  const postsDirectory = path.join(process.cwd(), 'posts', lang);
   const fullPath = path.join(postsDirectory, `${slug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
 
-  // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents);
 
-  // Use remark to convert markdown into HTML string
   const processedContent = await remark()
     .use(html)
     .process(matterResult.content);
   const contentHtml = processedContent.toString();
 
-  // Combine the data with the id and contentHtml
   return {
     slug,
     contentHtml,
