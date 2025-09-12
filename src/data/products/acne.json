@@ -1,14 +1,5 @@
 [
   {
-    "id": 5,
-    "name": "닥터자르트 시카페어 크림",
-    "description": "피부 진정 및 재생에 효과적, 민감성 피부 적합.",
-    "imageUrl": "https://t2c.coupangcdn.com/thumbnails/remote/212x212ex/image/retail/images/5298882781245730-c23e5680-6f7d-4281-8bf0-0f558b0b5739.jpg",
-    "affiliateUrlCoupang": "https://link.coupang.com/a/cM7rr8",
-    "affiliateUrlAmazon": "",
-    "attributes": { "skinTypes": ["sensitive", "oily", "combination"], "concerns": ["acne"], "formulation": "cream" }
-  },
-  {
     "id": 12,
     "name": "닥터지 레드 블레미쉬 클리어 수딩 크림",
     "description": "저자극, 트러블 진정용으로 많이 사용됨.",

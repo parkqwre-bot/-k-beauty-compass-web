@@ -6,7 +6,7 @@
     "imageUrl": "https://thumbnail1.coupangcdn.com/thumbnails/remote/212x212ex/image/vendor_inventory/d027/a7b5e3491d038d2ba2275247975f17d49f3e52411a5136613baba1762c34.jpg",
     "affiliateUrlCoupang": "https://link.coupang.com/a/cM7hXW",
     "affiliateUrlAmazon": "",
-    "attributes": { "skinTypes": ["dry", "combination"], "concerns": [] }
+    "attributes": { "skinTypes": ["dry", "sensitive"], "concerns": [], "formulation": "toner" }
   },
   {
     "id": 2,
@@ -24,7 +24,7 @@
     "imageUrl": "https://thumbnail8.coupangcdn.com/thumbnails/remote/212x212ex/image/retail/images/548431605420423-c1e7ae36-222a-47dc-be4c-f159cd2eebaf.jpg",
     "affiliateUrlCoupang": "https://link.coupang.com/a/cM7ouA",
     "affiliateUrlAmazon": "",
-    "attributes": { "skinTypes": ["dry", "combination"], "concerns": ["sensitive"], "formulation": "cream" }
+    "attributes": { "skinTypes": ["dry"], "concerns": ["brightening"], "formulation": "cream" }
   },
   {
     "id": 4,
@@ -36,13 +36,22 @@
     "attributes": { "skinTypes": ["dry", "sensitive"], "concerns": [], "formulation": "cream" }
   },
   {
+    "id": 5,
+    "name": "닥터자르트 시카페어 크림",
+    "description": "피부 진정 및 재생에 효과적, 민감성 피부 적합.",
+    "imageUrl": "https://t2c.coupangcdn.com/thumbnails/remote/212x212ex/image/retail/images/5298882781245730-c23e5680-6f7d-4281-8bf0-0f558b0b5739.jpg",
+    "affiliateUrlCoupang": "https://link.coupang.com/a/cM7rr8",
+    "affiliateUrlAmazon": "",
+    "attributes": { "skinTypes": ["dry", "sensitive"], "concerns": ["acne"], "formulation": "cream" }
+  },
+  {
     "id": 6,
     "name": "더마토리 촉촉 수분크림",
     "description": "가벼우면서도 깊은 보습력, 일상 보습용으로 추천.",
     "imageUrl": "https://thumbnail13.coupangcdn.com/thumbnails/remote/212x212ex/image/vendor_inventory/2a74/1bd0252e8a806cfe656cb7d0cdd3fb79afd721abf5f9bc460ae1e2398ea0.png",
     "affiliateUrlCoupang": "https://link.coupang.com/a/cM7rWN",
     "affiliateUrlAmazon": "",
-    "attributes": { "skinTypes": ["dry", "oily", "combination"], "concerns": [], "formulation": "cream" }
+    "attributes": { "skinTypes": ["dry"], "concerns": [], "formulation": "cream" }
   },
   {
     "id": 7,
@@ -51,7 +60,7 @@
     "imageUrl": "",
     "affiliateUrlCoupang": "",
     "affiliateUrlAmazon": "https://amzn.to/3HViIIb",
-    "attributes": { "skinTypes": ["dry", "normal"], "concerns": [], "formulation": "lotion" }
+    "attributes": { "skinTypes": ["dry"], "concerns": [], "formulation": "lotion" }
   },
   {
     "id": 8,
@@ -69,7 +78,7 @@
     "imageUrl": "",
     "affiliateUrlCoupang": "",
     "affiliateUrlAmazon": "https://amzn.to/4g4qlIP",
-    "attributes": { "skinTypes": ["dry", "oily", "combination"], "concerns": [], "formulation": "gel" }
+    "attributes": { "skinTypes": ["dry", "oily"], "concerns": [], "formulation": "gel" }
   },
   {
     "id": 10,

@@ -1,23 +1,5 @@
 [
   {
-    "id": 5,
-    "name": "닥터자르트 시카페어 크림",
-    "description": "피부 진정 및 재생에 효과적, 민감성 피부 적합.",
-    "imageUrl": "https://t2c.coupangcdn.com/thumbnails/remote/212x212ex/image/retail/images/5298882781245730-c23e5680-6f7d-4281-8bf0-0f558b0b5739.jpg",
-    "affiliateUrlCoupang": "https://link.coupang.com/a/cM7rr8",
-    "affiliateUrlAmazon": "",
-    "attributes": { "skinTypes": ["sensitive", "oily", "combination"], "concerns": ["acne"], "formulation": "cream" }
-  },
-  {
-    "id": 12,
-    "name": "닥터지 레드 블레미쉬 클리어 수딩 크림",
-    "description": "저자극, 트러블 진정용으로 많이 사용됨.",
-    "imageUrl": "https://thumbnail14.coupangcdn.com/thumbnails/remote/212x212ex/image/vendor_inventory/image_audit/stage/manual/3c1d5ec6-0aea-4087-8bf8-92b8e589a552_1750659497348.jpeg",
-    "affiliateUrlCoupang": "https://link.coupang.com/a/cM71k9",
-    "affiliateUrlAmazon": "",
-    "attributes": { "skinTypes": ["oily", "combination", "sensitive"], "concerns": ["acne"], "formulation": "cream" }
-  },
-  {
     "id": 21,
     "name": "닥터지 레드 블레미쉬 클리어 수딩 크림",
     "description": "민감 피부용, 자극이 적음.",
@@ -28,42 +10,33 @@
   },
   {
     "id": 22,
-    "name": "에즈윤 저자극 클렌저",
-    "description": "민감성 피부에 적합한 클렌저.",
-    "imageUrl": "",
-    "affiliateUrlCoupang": "https://link.coupang.com/a/cM8k7k",
-    "affiliateUrlAmazon": "",
-    "attributes": { "skinTypes": ["sensitive"], "concerns": [], "formulation": "cleanser" }
-  },
-  {
-    "id": 23,
     "name": "이니스프리 그린티 씨드 세럼",
     "description": "진정과 보습 효과.",
     "imageUrl": "https://thumbnail8.coupangcdn.com/thumbnails/remote/212x212ex/image/retail/images/549898109258293-3df9f041-3b03-40ab-8b2e-2771d58c2a75.jpg",
     "affiliateUrlCoupang": "https://link.coupang.com/a/cM8tzR",
     "affiliateUrlAmazon": "",
-    "attributes": { "skinTypes": ["sensitive", "combination", "dry"], "concerns": [], "formulation": "serum" }
+    "attributes": { "skinTypes": ["sensitive", "dry"], "concerns": [], "formulation": "serum" }
   },
   {
-    "id": 24,
+    "id": 23,
     "name": "CeraVe Hydrating Cleanser",
     "description": "저자극, 피부 보습 유지에 도움.",
     "imageUrl": "https://thumbnail8.coupangcdn.com/thumbnails/remote/212x212ex/image/vendor_inventory/6fb2/5c9ccf401c5da79db6369d969b9cc58356e28c79aa83f81ed1d25f844af4.jpg",
     "affiliateUrlCoupang": "https://link.coupang.com/a/cM8t7r",
-    "affiliateUrlAmazon": "https://amzn.to/45TLCQU",
+    "affiliateUrlAmazon": "",
     "attributes": { "skinTypes": ["sensitive", "dry"], "concerns": [], "formulation": "cleanser" }
   },
   {
-    "id": 25,
+    "id": 24,
     "name": "아벤느 시칼파트 밤",
     "description": "피부 진정용 밤.",
     "imageUrl": "https://thumbnail11.coupangcdn.com/thumbnails/remote/212x212ex/image/vendor_inventory/d09d/92918470ee67862dfd5587f78142d3eab0c24a0635d9d7f66bd7a417c8f7.jpg",
     "affiliateUrlCoupang": "https://link.coupang.com/a/cM8uxM",
     "affiliateUrlAmazon": "",
-    "attributes": { "skinTypes": ["sensitive"], "concerns": ["acne"], "formulation": "balm" }
+    "attributes": { "skinTypes": ["sensitive"], "concerns": [], "formulation": "balm" }
   },
   {
-    "id": 26,
+    "id": 25,
     "name": "CeraVe Moisturizing Cream",
     "description": "저자극 보습 크림.",
     "imageUrl": "",
@@ -72,7 +45,7 @@
     "attributes": { "skinTypes": ["sensitive", "dry"], "concerns": [], "formulation": "cream" }
   },
   {
-    "id": 27,
+    "id": 26,
     "name": "아이보스킨 인텐시브 시카 리페어 크림",
     "description": "피부 재생과 진정에 효과적.",
     "imageUrl": "",
@@ -81,7 +54,7 @@
     "attributes": { "skinTypes": ["sensitive"], "concerns": ["aging"], "formulation": "cream" }
   },
   {
-    "id": 28,
+    "id": 27,
     "name": "Vanicream Gentle Facial Cleanser",
     "description": "저자극 세정제.",
     "imageUrl": "",
@@ -90,7 +63,7 @@
     "attributes": { "skinTypes": ["sensitive"], "concerns": [], "formulation": "cleanser" }
   },
   {
-    "id": 29,
+    "id": 28,
     "name": "La Roche-Posay Toleriane Ultra",
     "description": "민감성 피부용 고보습 크림.",
     "imageUrl": "",
@@ -99,12 +72,12 @@
     "attributes": { "skinTypes": ["sensitive", "dry"], "concerns": [], "formulation": "cream" }
   },
   {
-    "id": 30,
+    "id": 29,
     "name": "Bioderma Sensibio H2O Micellar Water",
     "description": "클렌징워터로 유명.",
     "imageUrl": "",
     "affiliateUrlCoupang": "",
     "affiliateUrlAmazon": "https://amzn.to/3I02Wvy",
-    "attributes": { "skinTypes": ["sensitive"], "concerns": [], "formulation": "water" }
+    "attributes": { "skinTypes": ["sensitive"], "concerns": [], "formulation": "cleanser" }
   }
 ]

@@ -1,51 +1,15 @@
 [
   {
-    "id": 27,
-    "name": "아이보스킨 인텐시브 시카 리페어 크림",
-    "description": "피부 재생과 진정에 효과적.",
-    "imageUrl": "",
-    "affiliateUrlCoupang": "",
-    "affiliateUrlAmazon": "https://amzn.to/41vQASu",
-    "attributes": { "skinTypes": ["sensitive"], "concerns": ["aging"], "formulation": "cream" }
-  },
-  {
-    "id": 32,
-    "name": "코스알엑스 더 레티놀 0.1/0.3 크림",
-    "description": "각질 정돈과 주름 개선에 인기",
-    "imageUrl": "https://thumbnail13.coupangcdn.com/thumbnails/remote/212x212ex/image/retail/images/2023/07/03/11/0/86bcb40a-c8b7-40b4-8371-9e3b0c551fcf.png",
-    "affiliateUrlCoupang": "https://link.coupang.com/a/cM8viK",
-    "affiliateUrlAmazon": "",
-    "attributes": { "skinTypes": [], "concerns": ["pore", "aging", "brightening"], "formulation": "cream" }
-  },
-  {
-    "id": 36,
-    "name": "Collagen Pore Skincare Set",
-    "description": "탄력과 모공 관리용 세트.",
-    "imageUrl": "",
-    "affiliateUrlCoupang": "",
-    "affiliateUrlAmazon": "https://amzn.to/3JEGbhi",
-    "attributes": { "skinTypes": [], "concerns": ["pore", "aging"], "formulation": "set" }
-  },
-  {
-    "id": 40,
+    "id": 39,
     "name": "미샤 타임레볼루션 나이트 리페어 앰플",
     "description": "미백과 주름 개선 효과.",
     "imageUrl": "https://thumbnail2.coupangcdn.com/thumbnails/remote/212x212ex/image/vendor_inventory/4694/e4bb755bc59ec606f4453d6498a092bf272f299b90d0d3ec79ebf9690cfb.jpg",
     "affiliateUrlCoupang": "https://link.coupang.com/a/cM8Zdv",
-    "affiliateUrlAmazon": "https://amzn.to/41xwdEv",
+    "affiliateUrlAmazon": "",
     "attributes": { "skinTypes": [], "concerns": ["aging", "brightening"], "formulation": "serum" }
   },
   {
-    "id": 41,
-    "name": "고기능성 안티에이징 앰플/크림",
-    "description": "다양한 안티에이징 제품군.",
-    "imageUrl": "",
-    "affiliateUrlCoupang": "https://link.coupang.com/a/cM8Zo4",
-    "affiliateUrlAmazon": "",
-    "attributes": { "skinTypes": [], "concerns": ["aging"], "formulation": "cream" }
-  },
-  {
-    "id": 42,
+    "id": 40,
     "name": "아이오페 바이오 에센스",
     "description": "탄력 개선과 피부 활력 제공.",
     "imageUrl": "https://t3a.coupangcdn.com/thumbnails/remote/212x212ex/image/vendor_inventory/c039/bb9ef8f9e077665acbafcb8dadaaaa80578948a912b6789f1b0d1a9c25df.jpg",
@@ -54,7 +18,7 @@
     "attributes": { "skinTypes": [], "concerns": ["aging"], "formulation": "serum" }
   },
   {
-    "id": 43,
+    "id": 41,
     "name": "랩시리즈 링클 코렉터",
     "description": "주름 개선용 크림.",
     "imageUrl": "https://thumbnail7.coupangcdn.com/thumbnails/remote/212x212ex/image/retail/images/2024/02/20/12/9/0eeff30f-7951-4263-aa68-15906590429d.png",
@@ -63,7 +27,7 @@
     "attributes": { "skinTypes": [], "concerns": ["aging"], "formulation": "cream" }
   },
   {
-    "id": 44,
+    "id": 42,
     "name": "Missha Time Revolution Ampoule",
     "description": "안티에이징 인기 앰플.",
     "imageUrl": "",
@@ -72,7 +36,7 @@
     "attributes": { "skinTypes": [], "concerns": ["aging", "brightening"], "formulation": "serum" }
   },
   {
-    "id": 45,
+    "id": 43,
     "name": "Dermarfirm Bakuchiol Retinol Serum",
     "description": "레티놀 대체 성분 포함 탄력 증진.",
     "imageUrl": "",
@@ -81,7 +45,7 @@
     "attributes": { "skinTypes": [], "concerns": ["aging"], "formulation": "serum" }
   },
   {
-    "id": 46,
+    "id": 44,
     "name": "Olay Regenerist Micro-Sculpting Cream",
     "description": "주름 개선용 크림.",
     "imageUrl": "",
@@ -90,7 +54,7 @@
     "attributes": { "skinTypes": [], "concerns": ["aging"], "formulation": "cream" }
   },
   {
-    "id": 47,
+    "id": 45,
     "name": "The Ordinary Buffet Multi-Technology Peptide Serum",
     "description": "펩타이드 성분으로 피부 탄력 지원.",
     "imageUrl": "",
@@ -99,7 +63,7 @@
     "attributes": { "skinTypes": [], "concerns": ["aging"], "formulation": "serum" }
   },
   {
-    "id": 48,
+    "id": 46,
     "name": "Kiehl’s Powerful-Strength Line-Reducing Concentrate",
     "description": "강력한 주름 개선 집중 세럼.",
     "imageUrl": "",

@@ -1,6 +1,6 @@
 [
   {
-    "id": 31,
+    "id": 30,
     "name": "더마토리 트러블 모공 클리어 패드",
     "description": "모공 관리와 트러블 완화에 도움.",
     "imageUrl": "https://thumbnail4.coupangcdn.com/thumbnails/remote/212x212ex/image/vendor_inventory/143b/f70806a609ba4ae26455be40e33f134302e3bff64be859a795537e579ea6.jpg",
@@ -9,75 +9,75 @@
     "attributes": { "skinTypes": ["oily", "combination"], "concerns": ["pore", "acne"], "formulation": "pad" }
   },
   {
-    "id": 32,
+    "id": 31,
     "name": "코스알엑스 더 레티놀 0.1/0.3 크림",
     "description": "각질 정돈과 주름 개선에 인기",
     "imageUrl": "https://thumbnail13.coupangcdn.com/thumbnails/remote/212x212ex/image/retail/images/2023/07/03/11/0/86bcb40a-c8b7-40b4-8371-9e3b0c551fcf.png",
     "affiliateUrlCoupang": "https://link.coupang.com/a/cM8viK",
     "affiliateUrlAmazon": "",
-    "attributes": { "skinTypes": [], "concerns": ["pore", "aging", "brightening"], "formulation": "cream" }
+    "attributes": { "skinTypes": [], "concerns": ["pore", "aging"], "formulation": "cream" }
   },
   {
-    "id": 33,
+    "id": 32,
     "name": "스킨푸드 블랙슈가 페이셜 스크럽",
     "description": "부드러운 각질 제거용.",
     "imageUrl": "https://thumbnail1.coupangcdn.com/thumbnails/remote/212x212ex/image/retail/images/160040715031656-2954b573-0292-4c71-9ebc-cffaaf865881.png",
     "affiliateUrlCoupang": "https://link.coupang.com/a/cM8vGp",
     "affiliateUrlAmazon": "",
-    "attributes": { "skinTypes": [], "concerns": ["pore", "brightening"], "formulation": "scrub" }
+    "attributes": { "skinTypes": ["oily", "combination"], "concerns": ["pore"], "formulation": "scrub" }
   },
   {
-    "id": 34,
+    "id": 33,
     "name": "닥터자르트 바이탈 하이드라 솔루션 토너",
     "description": "수분 공급과 모공 케어.",
     "imageUrl": "https://thumbnail2.coupangcdn.com/thumbnails/remote/212x212ex/image/retail/images/159528746237335-125e370c-9639-4b8b-929a-692732bab845.jpg",
     "affiliateUrlCoupang": "https://link.coupang.com/a/cM8v3x",
     "affiliateUrlAmazon": "",
-    "attributes": { "skinTypes": ["oily", "combination"], "concerns": ["pore"], "formulation": "toner" }
+    "attributes": { "skinTypes": ["oily", "combination", "dry"], "concerns": ["pore"], "formulation": "toner" }
   },
   {
-    "id": 35,
+    "id": 34,
     "name": "MediCube Zero Pore Pad",
     "description": "모공 청정 효과.",
     "imageUrl": "",
     "affiliateUrlCoupang": "",
-    "affiliateUrlAmazon": "https://amzn.to/4p35lGC",
+    "affiliateUrlAmazon": "",
     "attributes": { "skinTypes": ["oily", "combination"], "concerns": ["pore"], "formulation": "pad" }
   },
   {
-    "id": 36,
+    "id": 35,
     "name": "Collagen Pore Skincare Set",
     "description": "탄력과 모공 관리용 세트.",
     "imageUrl": "",
     "affiliateUrlCoupang": "",
-    "affiliateUrlAmazon": "https://amzn.to/3JEGbhi",
+    "affiliateUrlAmazon": "",
     "attributes": { "skinTypes": [], "concerns": ["pore", "aging"], "formulation": "set" }
   },
   {
-    "id": 37,
+    "id": 36,
     "name": "Paula’s Choice Skin Perfecting 2% BHA Liquid Exfoliant",
     "description": "각질과 모공 관리에 세계적 인기.",
     "imageUrl": "",
     "affiliateUrlCoupang": "",
-    "affiliateUrlAmazon": "https://amzn.to/3URaxj1",
-    "attributes": { "skinTypes": ["oily", "combination"], "concerns": ["pore", "brightening", "acne"], "formulation": "liquid" }
+    "affiliateUrlAmazon": "",
+    "attributes": { "skinTypes": ["oily", "combination"], "concerns": ["pore", "acne"], "formulation": "liquid" }
   },
   {
-    "id": 38,
+    "id": 37,
     "name": "First Aid Beauty Facial Radiance Pads",
     "description": "각질 제거 및 피부 광채 개선.",
     "imageUrl": "",
     "affiliateUrlCoupang": "",
-    "affiliateUrlAmazon": "https://amzn.to/3JDUBON",
-    "attributes": { "skinTypes": [], "concerns": ["brightening"], "formulation": "pad" }
+    "affiliateUrlAmazon": "",
+    "attributes": { "skinTypes": [], "concerns": ["pore", "brightening"], "formulation": "pad" }
   },
   {
-    "id": 39,
+    "id": 38,
     "name": "Neogen Dermalogy Bio-Peel Gauze Peeling Green Tea",
     "description": "각질 제거와 진정.",
     "imageUrl": "",
     "affiliateUrlCoupang": "",
-    "affiliateUrlAmazon": "https://amzn.to/4g8buNM",
-    "attributes": { "skinTypes": ["sensitive"], "concerns": ["brightening"], "formulation": "pad" }
+    "affiliateUrlAmazon": "",
+    "attributes": { "skinTypes": [], "concerns": ["pore", "sensitive"], "formulation": "pad" }
   }
 ]
