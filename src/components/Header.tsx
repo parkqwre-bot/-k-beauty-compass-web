@@ -33,11 +33,11 @@ export default function Header() {
 
   return (
     <header style={headerStyle}>
-      <Link href={`/${lang}`} style={logoStyle}>
+      <Link href={`/`} style={logoStyle}>
         K-Beauty Compass
       </Link>
       <nav>
-        <Link href={`/${lang}`} style={navLinkStyle}>
+        <Link href={`/`} style={navLinkStyle}>
           Home
         </Link>
         <Link href={`/${lang}/blog`} style={navLinkStyle}>
