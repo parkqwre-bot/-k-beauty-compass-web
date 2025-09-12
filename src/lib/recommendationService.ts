@@ -88,7 +88,7 @@ export async function getRecommendations(
     return a.product.name.localeCompare(b.product.name); // Alphabetical if scores are equal
   });
 
-  let uniqueRecommendedProducts = Array.from(new Map(scoredProducts.map(p => [p.name, p.product])).values());
+  let uniqueRecommendedProducts = Array.from(new Map(scoredProducts.map(p => [p.product.name, p.product])).values());
 
   // --- Fallback Logic: Ensure products are always returned ---
   if (uniqueRecommendedProducts.length === 0) {
