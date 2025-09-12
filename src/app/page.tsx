@@ -128,7 +128,7 @@ export default function Home() {
   );
 
   const renderResults = () => (
-    <div className="min-h-screen p-8">
+    <div className="p-8">
       <h2 className="text-3xl font-bold text-center mb-8">
         {String(getTranslation(currentLocale, "yourPersonalizedRoutine"))}
       </h2>
