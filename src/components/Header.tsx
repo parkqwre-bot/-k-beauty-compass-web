@@ -46,7 +46,13 @@ export default function Header() {
         <select
           onChange={(e) => {
             const newLang = e.target.value;
-            const newPath = pathname.replace(/^\/(en|ko)/, `/${newLang}`);
+            let newPath = pathname;
+
+            if (newPath === '/') {
+              newPath = `/${newLang}/blog`; // Redirect to the blog of the selected language
+            } else {
+              newPath = pathname.replace(/^\/(en|ko)/, `/${newLang}`);
+            }
             window.location.href = newPath;
           }}
           value={lang}
