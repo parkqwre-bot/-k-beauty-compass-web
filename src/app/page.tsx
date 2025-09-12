@@ -141,7 +141,8 @@ export default function Home() {
           />
         ))}
       </div>
-      <div className="text-center text-sm text-gray-600 px-4 mt-8">
+      {/* Disclaimer fixed at the bottom */}
+      <div className="fixed bottom-0 left-0 right-0 w-full bg-gray-100 text-center text-sm text-gray-600 p-4 z-50 border-t border-gray-200">
         <p>{String(getTranslation(currentLocale, "affiliateDisclaimer"))}</p>
       </div>
       {/* <div className="mt-8">
