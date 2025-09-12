@@ -46,27 +46,50 @@ export async function getRecommendations(
 
   console.log("User Profile - Skin Type:", userSkinType, ", Concerns:", userConcerns);
 
-  // --- Filter Products Atomically (Location + Profile) ---
-  const recommendedProducts: Product[] = allProducts.filter((product) => {
-    // 1. Location Check: Ensure the product is suitable for the user's region.
+  // --- Implement Scoring-Based Recommendation ---
+  const scoredProducts: { product: Product; score: number }[] = [];
+
+  for (const product of allProducts) {
+    let score = 0;
+
+    // 1. Location Check (Mandatory)
     const locationMatch = isUS
       ? product.affiliateUrlAmazon && !isKorean(product.name)
       : product.affiliateUrlCoupang;
 
     if (!locationMatch) {
-      return false; // Immediately discard if it doesn't fit the region.
+      continue; // Skip products not available in the user's region
     }
 
-    // 2. Profile Check: If location matches, then check skin profile.
-    const { skinTypes, concerns } = product.attributes;
-    const skinTypeMatch = userSkinType ? skinTypes.includes(userSkinType) : true;
-    const concernMatch = userConcerns.length === 0 ? true : userConcerns.some(concern => concerns.includes(concern));
-    
-    return skinTypeMatch && concernMatch;
+    // 2. Skin Type Match (Score: 2)
+    if (userSkinType && product.attributes.skinTypes.includes(userSkinType)) {
+      score += 2;
+    }
+
+    // 3. Concern Match (Score: 3 - higher priority)
+    if (userConcerns.length > 0) {
+      const hasConcernMatch = userConcerns.some(concern => product.attributes.concerns.includes(concern));
+      if (hasConcernMatch) {
+        score += 3;
+      }
+    }
+
+    // Only add products that have at least one match (score > 0)
+    if (score > 0) {
+      scoredProducts.push({ product, score });
+    }
+  }
+
+  // Sort by score (descending) and then by product name (for consistent order)
+  scoredProducts.sort((a, b) => {
+    if (b.score !== a.score) {
+      return b.score - a.score; // Higher score first
+    }
+    return a.product.name.localeCompare(b.product.name); // Alphabetical if scores are equal
   });
 
-  // Simple de-duplication
-  const uniqueRecommendedProducts = Array.from(new Map(recommendedProducts.map(p => [p.name, p])).values());
+  // Extract just the products from the scored list
+  const uniqueRecommendedProducts = Array.from(new Map(scoredProducts.map(p => [p.name, p.product])).values());
 
   console.log(`Found ${uniqueRecommendedProducts.length} matching products.`);
   console.log("--- Intelligent Recommendation Service End ---");
