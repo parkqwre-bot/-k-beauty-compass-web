@@ -115,9 +115,7 @@ export default function Home() {
       >
         {String(getTranslation(currentLocale, "skip"))}
       </button>
-      <div className="absolute bottom-4 text-center text-xs text-gray-500 px-4">
-        <p>{String(getTranslation(currentLocale, "affiliateDisclaimer"))}</p>
-      </div>
+      
     </main>
   );
 
@@ -142,6 +140,9 @@ export default function Home() {
             isUS={quizAnswers[0]?.[0] === 1}
           />
         ))}
+      </div>
+      <div className="text-center text-xs text-gray-500 px-4 mt-8">
+        <p>{String(getTranslation(currentLocale, "affiliateDisclaimer"))}</p>
       </div>
       {/* <div className="mt-8">
         <AdBanner dataAdSlot="6300978111" />
