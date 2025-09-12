@@ -16,6 +16,19 @@ export async function getRecommendations(
   console.log("Received answers:", answers);
   console.log("User location isUS:", isUS);
 
+  // --- Filter Products by Location FIRST ---
+  let availableProducts: Product[];
+  if (isUS) {
+    console.log("Filtering for US market (Amazon products).");
+    availableProducts = allProducts.filter(
+      (p) => p.affiliateUrlAmazon && !isKorean(p.name)
+    );
+  } else {
+    console.log("Filtering for Korean market (Coupang products).");
+    availableProducts = allProducts.filter((p) => p.affiliateUrlCoupang);
+  }
+  console.log(`Found ${availableProducts.length} products for the selected market.`);
+
   // --- Determine User's Profile from Answers ---
   let userSkinType: string | undefined;
   const skinFeelAnswer = answers[1]?.[0];
@@ -23,11 +36,9 @@ export async function getRecommendations(
     if (skinFeelAnswer === 0) userSkinType = 'dry';
     if (skinFeelAnswer === 1) userSkinType = 'normal';
     if (skinFeelAnswer === 2) userSkinType = 'oily';
-    // if 3 (notSure), userSkinType remains undefined
   }
 
   const sensitivityAnswer = answers[3]?.[0];
-  // If user says they are sensitive, this overrides their basic skin type for recommendation purposes.
   if (sensitivityAnswer === 0 || sensitivityAnswer === 1) {
     userSkinType = 'sensitive';
   }
@@ -41,43 +52,25 @@ export async function getRecommendations(
         case 1: userConcerns.push('pore'); break;
         case 2: userConcerns.push('aging'); break;
         case 3: userConcerns.push('sensitive'); break;
-        case 4: userConcerns.push('brightening'); break; // Mapped from dullness
+        case 4: userConcerns.push('brightening'); break;
       }
     }
   }
 
   console.log("User Profile - Skin Type:", userSkinType, ", Concerns:", userConcerns);
 
-  // --- Filter Products with New Logic ---
-  let recommendedProducts: Product[] = allProducts.filter((product) => {
+  // --- Filter Available Products with User Profile ---
+  let recommendedProducts: Product[] = availableProducts.filter((product) => {
     const { skinTypes, concerns } = product.attributes;
-
-    // If user has no specific skin type, it matches all products.
     const skinTypeMatch = userSkinType ? skinTypes.includes(userSkinType) : true;
-
-    // If user has no specific concerns, it matches all products.
-    // Otherwise, check if there is at least one overlapping concern.
     const concernMatch = userConcerns.length === 0 ? true : userConcerns.some(concern => concerns.includes(concern));
-
-    // A product is recommended only if it matches BOTH skin type AND concerns.
     return skinTypeMatch && concernMatch;
   });
-
-  // Filter by location
-  if (isUS) {
-    recommendedProducts = recommendedProducts.filter(
-      (p) => p.affiliateUrlAmazon && !isKorean(p.name)
-    );
-  } else {
-    recommendedProducts = recommendedProducts.filter(
-      (p) => p.affiliateUrlCoupang
-    );
-  }
 
   // Simple de-duplication
   const uniqueRecommendedProducts = Array.from(new Map(recommendedProducts.map(p => [p.name, p])).values());
 
-  console.log(`Found ${uniqueRecommendedProducts.length} matching products.`);
+  console.log(`Found ${uniqueRecommendedProducts.length} matching products after profile filtering.`);
   console.log("--- Intelligent Recommendation Service End ---");
 
   return uniqueRecommendedProducts;
