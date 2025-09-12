@@ -141,7 +141,7 @@ export default function Home() {
           />
         ))}
       </div>
-      <div className="text-center text-xs text-gray-500 px-4 mt-8">
+      <div className="text-center text-sm text-gray-600 px-4 mt-8">
         <p>{String(getTranslation(currentLocale, "affiliateDisclaimer"))}</p>
       </div>
       {/* <div className="mt-8">
