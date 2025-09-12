@@ -12,7 +12,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, isUS }) => {
 
   return (
     <div className="border rounded-lg shadow-lg p-4 m-2 w-80 flex flex-col items-center">
-      <Image src={product.imageUrl} alt={product.name} width={192} height={192} className="w-full h-48 object-contain mb-4" />
+      {product.imageUrl ? (
+        <Image src={product.imageUrl} alt={product.name} width={192} height={192} className="w-full h-48 object-contain mb-4" />
+      ) : (
+        <div className="w-full h-48 flex items-center justify-center bg-gray-200 text-gray-500 mb-4 rounded-lg">
+          No Image
+        </div>
+      )}
       <h3 className="text-lg font-bold text-center mb-2">{product.name}</h3>
       <p className="text-sm text-gray-600 text-center mb-4">{product.description}</p>
       <a
