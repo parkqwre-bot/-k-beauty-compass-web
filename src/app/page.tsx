@@ -96,16 +96,7 @@ export default function Home() {
 
   const renderOnboarding = () => (
     <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <div className="absolute top-4 right-4">
-        <select
-          onChange={(e) => handleLanguageChange(e.target.value as "en" | "ko")}
-          value={currentLocale}
-          className="p-2 rounded-md border"
-        >
-          <option value="en">English</option>
-          <option value="ko">한국어</option>
-        </select>
-      </div>
+      
       <h1 className="text-5xl font-bold text-pink-500 mb-8">
         {String(getTranslation(currentLocale, "kBeautyCompass"))}
       </h1>

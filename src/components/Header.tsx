@@ -36,13 +36,25 @@ export default function Header() {
       <Link href={`/`} style={logoStyle}>
         K-Beauty Compass
       </Link>
-      <nav>
+      <nav style={{ display: 'flex', alignItems: 'center' }}>
         <Link href={`/`} style={navLinkStyle}>
           Home
         </Link>
         <Link href={`/${lang}/blog`} style={navLinkStyle}>
           Blog
         </Link>
+        <select
+          onChange={(e) => {
+            const newLang = e.target.value;
+            const newPath = pathname.replace(/^\/(en|ko)/, `/${newLang}`);
+            window.location.href = newPath;
+          }}
+          value={lang}
+          className="p-2 rounded-md border bg-gray-700 text-white ml-4"
+        >
+          <option value="en">English</option>
+          <option value="ko">한국어</option>
+        </select>
       </nav>
     </header>
   );
