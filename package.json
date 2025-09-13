@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-        "build": "next build --turbopack",
-    "postbuild": "next-sitemap",
+        "build": "next build --turbopack && next-sitemap",
     "start": "next start",
     "lint": "eslint"
   },
