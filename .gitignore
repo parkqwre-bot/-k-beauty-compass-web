@@ -42,3 +42,4 @@ next-env.d.ts
 # sitemap and robots
 /public/sitemap*.xml
 /public/robots.txt
+.vercel
