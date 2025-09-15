@@ -1,3 +1,7 @@
+---
+title: 'A Detailed Step-by-Step Guide to Skincare'
+date: '2025-09-15'
+---
 # A Detailed Step-by-Step Guide to Skincare
 
 Skincare is about more than just applying good products. Following the correct order and usage for each step plays a crucial role in skin health. This guide provides a detailed explanation of the basic skincare steps, from cleansing to sun protection, and what to watch out for.
