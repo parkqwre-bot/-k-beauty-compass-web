@@ -6,10 +6,10 @@ import html from 'remark-html';
 
 // Gets the data for all posts in a specific language, sorted by date
 export function getSortedPostsData(lang: string) {
-  const postsDirectory = path.join(process.cwd(), 'posts', lang);
+  const postsDirectory = path.join(process.cwd(), 'src', 'app', lang, 'blog', 'posts');
   const fileNames = fs.readdirSync(postsDirectory);
   const allPostsData = fileNames.map((fileName) => {
-    const id = fileName.replace(/\.md$/, '');
+    const id = fileName.replace(/\.mdx$/, '');
     const fullPath = path.join(postsDirectory, fileName);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const matterResult = matter(fileContents);
@@ -35,13 +35,13 @@ export function getAllPostIds() {
   let allPaths: { params: { lang: string; slug: string } }[] = [];
 
   for (const lang of languages) {
-    const postsDirectory = path.join(process.cwd(), 'posts', lang);
+    const postsDirectory = path.join(process.cwd(), 'src', 'app', lang, 'blog', 'posts');
     if (fs.existsSync(postsDirectory)) {
       const fileNames = fs.readdirSync(postsDirectory);
       const paths = fileNames.map((fileName) => ({
         params: {
           lang,
-          slug: fileName.replace(/\.md$/, ''),
+          slug: fileName.replace(/\.mdx$/, ''),
         },
       }));
       allPaths = allPaths.concat(paths);
@@ -52,8 +52,8 @@ export function getAllPostIds() {
 
 // Gets the content of a specific post for a specific language
 export async function getPostData(lang: string, slug: string) {
-  const postsDirectory = path.join(process.cwd(), 'posts', lang);
-  const fullPath = path.join(postsDirectory, `${slug}.md`);
+  const postsDirectory = path.join(process.cwd(), 'src', 'app', lang, 'blog', 'posts');
+  const fullPath = path.join(postsDirectory, `${slug}.mdx`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
 
   const matterResult = matter(fileContents);
