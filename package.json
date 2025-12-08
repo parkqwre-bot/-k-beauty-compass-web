@@ -4,14 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-        "build": "next build --turbopack && next-sitemap",
+    "build": "next build --turbopack && next-sitemap",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
     "copy-webpack-plugin": "^13.0.1",
     "gray-matter": "^4.0.3",
-    "next": "15.5.2",
+    "next": "15.5.7",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "remark": "^15.0.1",
