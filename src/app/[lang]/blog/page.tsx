@@ -15,7 +15,7 @@ export default function Blog({ params }: { params: { lang: string } }) {
             <Link href={`/${params.lang}/blog/${id}`}>{title}</Link>
             <br />
             <small>
-              {date}
+              {new Date(date).toLocaleDateString()}
             </small>
           </li>
         ))}
