@@ -12,6 +12,7 @@
     "autoprefixer": "^10.4.19",
     "gray-matter": "^4.0.3",
     "next": "14.2.3",
+    "next-sitemap": "^4.2.3",
     "postcss": "^8.4.38",
     "react": "18.3.1",
     "react-dom": "18.3.1",
@@ -23,9 +24,8 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "eslint": "^8",
+    "eslint": "^9.39.2",
     "eslint-config-next": "14.2.3",
-    "next-sitemap": "^4.2.3",
     "typescript": "^5"
   }
 }
