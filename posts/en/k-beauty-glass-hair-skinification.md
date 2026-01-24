@@ -1,5 +1,5 @@
 ---
-title: K-Beauty's Secret to Luminous Locks: Achieving Glass Hair Through Skinification
+title: "K-Beauty's Secret to Luminous Locks: Achieving Glass Hair Through Skinification"
 date: "2026-01-24"
 author: K-Beauty Compass
 tags: ["K-Beauty", "Glass Hair", "Skinification of Hair", "Korean Haircare", "Hair Health", "Scalp Care"]

@@ -1,5 +1,5 @@
 ---
-title: Trending Korean Beauty Products 2026: Your Guide to the Future of K-Beauty
+title: "Trending Korean Beauty Products 2026: Your Guide to the Future of K-Beauty"
 date: '2026-01-24'
 author: K-Beauty Compass
 description: Discover the top trending Korean beauty products and ingredients for 2026, focusing on innovation, skin barrier health, and personalized skincare.

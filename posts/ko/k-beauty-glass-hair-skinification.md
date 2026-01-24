@@ -1,5 +1,5 @@
 ---
-title: K-뷰티의 빛나는 머릿결 비법: 스키니피케이션을 통한 글라스 헤어
+title: "K-뷰티의 빛나는 머릿결 비법: 스키니피케이션을 통한 글라스 헤어"
 date: "2026-01-24"
 author: K-Beauty Compass
 tags: ["K-Beauty", "Glass Hair", "Skinification of Hair", "Korean Haircare", "Hair Health", "Scalp Care"]
