@@ -1,7 +1,13 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import { NextResponse } from 'next/server';
 
 const getFilesRecursively = (dir, ext, files = []) => {
+  if (!fs.existsSync(dir)) {
+    console.warn(`Directory not found: ${dir}`);
+    return files;
+  }
   const items = fs.readdirSync(dir, { withFileTypes: true });
 
   for (const item of items) {
@@ -15,7 +21,7 @@ const getFilesRecursively = (dir, ext, files = []) => {
   return files;
 };
 
-async function generateSitemap() {
+export async function GET() {
   const siteUrl = 'https://k-beauty-compass-web.vercel.app';
   const postsDirectory = path.join(process.cwd(), 'posts');
   const filePaths = getFilesRecursively(postsDirectory, '.md');
@@ -31,22 +37,37 @@ async function generateSitemap() {
   }, {});
 
   const sitemapEntries = Object.entries(postsByBaseName).flatMap(([baseName, langFiles]) => {
+    const entries = [];
+    
+    // Determine lastmod from the latest post date available
+    let latestLastMod = new Date().toISOString();
+    if (langFiles.en) {
+        const fileContents = fs.readFileSync(langFiles.en, 'utf8');
+        const { data } = matter(fileContents);
+        if (data.date) latestLastMod = new Date(data.date).toISOString();
+    } else if (langFiles.ko) {
+        const fileContents = fs.readFileSync(langFiles.ko, 'utf8');
+        const { data } = matter(fileContents);
+        if (data.date) latestLastMod = new Date(data.date).toISOString();
+    }
+
+
     const alternateRefs = [];
     if (langFiles.en) alternateRefs.push({ lang: 'en', slug: baseName });
     if (langFiles.ko) alternateRefs.push({ lang: 'ko', slug: baseName });
 
-    const entries = [];
+
     if (langFiles.en) {
       entries.push({
         loc: `${siteUrl}/en/blog/${baseName}`,
-        lastmod: new Date().toISOString(),
+        lastmod: latestLastMod,
         alternates: alternateRefs,
       });
     }
     if (langFiles.ko) {
       entries.push({
         loc: `${siteUrl}/ko/blog/${baseName}`,
-        lastmod: new Date().toISOString(),
+        lastmod: latestLastMod,
         alternates: alternateRefs,
       });
     }
@@ -82,8 +103,10 @@ async function generateSitemap() {
 
   const sitemap = xmlParts.join('\n');
 
-  fs.writeFileSync(path.join(process.cwd(), 'public', 'sitemap.xml'), sitemap);
-  console.log('Sitemap generated successfully!');
+  return new NextResponse(sitemap, {
+    status: 200,
+    headers: {
+      'Content-Type': 'application/xml',
+    },
+  });
 }
-
-generateSitemap().catch(console.error);
