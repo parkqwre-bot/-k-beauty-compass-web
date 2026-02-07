@@ -9,18 +9,29 @@ const postsDirectory = path.join(process.cwd(), 'posts');
 export function getSortedPostsData(locale: string) {
   const fullPath = path.join(postsDirectory, locale);
   const fileNames = fs.readdirSync(fullPath);
-  const allPostsData = fileNames.map((fileName) => {
-    const id = fileName.replace(/\.md$/, '');
-    const fullFilePath = path.join(fullPath, fileName);
-    const fileContents = fs.readFileSync(fullFilePath, 'utf8');
-    const matterResult = matter(fileContents);
-
-    return {
-      id,
-      ...(matterResult.data as { date: string; title: string; thumbnail: string; description: string }),
-    };
-  });
-
+      const allPostsData = fileNames.map((fileName) => {
+        const id = fileName.replace(/\.md$/, '');
+        const fullFilePath = path.join(fullPath, fileName);
+        const fileContents = fs.readFileSync(fullFilePath, 'utf8');
+  
+        try {
+          const matterResult = matter(fileContents);
+          return {
+            id,
+            ...(matterResult.data as { date: string; title: string; thumbnail: string; description: string }),
+          };
+        } catch (e) {
+          console.error(`Error parsing frontmatter for file: ${fileName}`, e);
+          // Return a minimal valid structure for posts that fail to parse
+          return {
+            id,
+            date: '2000-01-01', // Fallback date
+            title: `Error loading post: ${id}`,
+            thumbnail: '',
+            description: 'This post has a frontmatter parsing error.',
+          };
+        }
+      });
   return allPostsData.sort((a, b) => {
     if (a.date < b.date) {
       return 1;
