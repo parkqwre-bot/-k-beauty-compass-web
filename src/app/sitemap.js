@@ -23,11 +23,17 @@ export default async function sitemap() {
   const sitemapItems = Object.entries(postsByBaseName).flatMap(([baseName, langFiles]) => {
     const entries = [];
     
-    let latestLastMod = new Date().toISOString();
+    let latestLastMod = new Date(); // Default to current date
     if (langFiles.en && langFiles.en.date) {
-        latestLastMod = new Date(langFiles.en.date).toISOString();
+        const enDate = new Date(langFiles.en.date);
+        if (!isNaN(enDate.getTime())) { // Check if date is valid
+            latestLastMod = enDate;
+        }
     } else if (langFiles.ko && langFiles.ko.date) {
-        latestLastMod = new Date(langFiles.ko.date).toISOString();
+        const koDate = new Date(langFiles.ko.date);
+        if (!isNaN(koDate.getTime())) { // Check if date is valid
+            latestLastMod = koDate;
+        }
     }
 
     const alternates = {};
@@ -37,7 +43,7 @@ export default async function sitemap() {
     if (langFiles.en) {
       entries.push({
         url: `${siteUrl}/en/blog/${baseName}`,
-        lastModified: latestLastMod,
+        lastModified: latestLastMod.toISOString(),
         changeFrequency: 'daily',
         priority: 0.7,
         alternates: {
@@ -48,7 +54,7 @@ export default async function sitemap() {
     if (langFiles.ko) {
       entries.push({
         url: `${siteUrl}/ko/blog/${baseName}`,
-        lastModified: latestLastMod,
+        lastModified: latestLastMod.toISOString(),
         changeFrequency: 'daily',
         priority: 0.7,
         alternates: {
