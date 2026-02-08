@@ -56,8 +56,36 @@ export function getAllPostIds(locale: string) {
 
 export async function getPostData(id: string, locale: string) {
   const fullPath = path.join(postsDirectory, locale, `${id}.md`);
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
-  const matterResult = matter(fileContents);
+  let fileContents: string;
+  try {
+    fileContents = fs.readFileSync(fullPath, 'utf8');
+  } catch (readError) {
+    console.error(`Error reading file for post ${id} in locale ${locale}:`, readError);
+    return {
+      id,
+      contentHtml: '<h1>Error loading post content.</h1><p>The file could not be read.</p>',
+      date: '2000-01-01', // Fallback date
+      title: `Error: Post not found or unreadable: ${id}`,
+      thumbnail: '',
+      description: 'This post could not be loaded due to a file read error.',
+    };
+  }
+
+  let matterResult;
+  try {
+    matterResult = matter(fileContents);
+  } catch (parseError) {
+    console.error(`Error parsing frontmatter for post ${id} in locale ${locale}:`, parseError);
+    return {
+      id,
+      contentHtml: '<h1>Error loading post content.</h1><p>The frontmatter could not be parsed. Please check for YAML syntax errors.</p>',
+      date: '2000-01-01', // Fallback date
+      title: `Error: Frontmatter parsing failed for ${id}`,
+      thumbnail: '',
+      description: 'This post has a frontmatter parsing error.',
+    };
+  }
+
   const processedContent = await remark().use(html).process(matterResult.content);
   const contentHtml = processedContent.toString();
 
