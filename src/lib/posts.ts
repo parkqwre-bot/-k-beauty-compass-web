@@ -3,6 +3,21 @@ import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
+import { z } from 'zod'; // Import zod
+
+// Define the Zod schema for frontmatter
+const PostFrontmatterSchema = z.object({
+  date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Date must be in YYYY-MM-DD format"),
+  title: z.string().min(1, "Title cannot be empty"),
+  thumbnail: z.string().optional(), // Make thumbnail optional as it might not always be present or valid
+  description: z.string().min(1, "Description cannot be empty"),
+  // Add other frontmatter fields as needed, e.g., tags, author
+  tags: z.array(z.string()).optional(),
+  author: z.string().optional(),
+});
+
+// Infer the TypeScript type from the schema
+type PostFrontmatter = z.infer<typeof PostFrontmatterSchema>;
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 
@@ -29,20 +44,35 @@ export function getSortedPostsData(locale: string) {
   
         try {
           const matterResult = matter(fileContents);
+          // Validate frontmatter using Zod
+          const validatedData = PostFrontmatterSchema.safeParse(matterResult.data);
+
+          if (!validatedData.success) {
+            console.error(`Frontmatter validation failed for file: ${fileName} in locale ${locale} during getSortedPostsData:`, validatedData.error);
+            return {
+              id,
+              date: '2000-01-01', // Fallback date, will sort to bottom
+              title: `Error: Frontmatter validation failed for '${id}'.`,
+              thumbnail: '',
+              description: `Validation errors: ${validatedData.error.errors.map(err => err.message).join(', ')}.`,
+              isError: true, // Mark as an error post
+            };
+          }
+
           return {
             id,
-            ...(matterResult.data as { date: string; title: string; thumbnail: string; description: string }),
+            ...validatedData.data, // Use validated data
             isError: false, // Mark as not an error post
           };
         } catch (e) {
-          console.error(`Error parsing frontmatter for file: ${fileName} in locale ${locale} during getSortedPostsData:`, e);
+          console.error(`Error parsing frontmatter (YAML) for file: ${fileName} in locale ${locale} during getSortedPostsData:`, e);
           // Return a minimal valid structure for posts that fail to parse
           return {
             id,
             date: '2000-01-01', // Fallback date, will sort to bottom
-            title: `Error: Frontmatter parsing failed for '${id}'.`,
+            title: `Error: YAML parsing failed for '${id}'.`,
             thumbnail: '',
-            description: 'This post has a frontmatter parsing error. Please check YAML syntax.',
+            description: 'This post has a YAML parsing error. Please check YAML syntax.',
             isError: true, // Mark as an error post
           };
         }
@@ -108,6 +138,6 @@ export async function getPostData(id: string, locale: string) {
   return {
     id,
     contentHtml,
-    ...(matterResult.data as { date: string; title: string; thumbnail: string; description: string }),
+    ...validatedData.data, // Use validated data
   };
 }
