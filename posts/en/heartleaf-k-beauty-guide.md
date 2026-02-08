@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Why Heartleaf (Houttuynia Cordata) is the K-Beauty Hero for Sensitive Skin in 2026"
 date: "2026-01-12"
 excerpt: "Discover why Heartleaf is dominating K-Beauty in 2026. From soothing acne to calming redness, this ancient herb is the ultimate solution for sensitive skin."

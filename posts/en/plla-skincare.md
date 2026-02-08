@@ -11,7 +11,7 @@ But in 2026, K-Beauty has taken this powerful ingredient out of the needle and i
 
 ### What is PLLA?
 
-PLLA is a bio-stimulator. Unlike hyaluronic acid, which simply fills space with moisture, PLLA actually **signals your skin to produce its own collagen**. It has been used safely in medicine for decades (in dissolvable stitches, for example) and is fully biodegradable.
+PLLA is a bio-stimulator. Unlike hyaluronic acid, which simply fills space to smooth out wrinkles, PLLA actually **signals your skin to produce its own collagen**. It has been used safely in medicine for decades (in dissolvable stitches, for example) and is fully biodegradable.
 
 When adapted for topical use in serums and creams, the PLLA molecule is often encapsulated or formulated with delivery systems that allow it to penetrate the upper layers of the skin, providing a "filler-like" effect over time.
 

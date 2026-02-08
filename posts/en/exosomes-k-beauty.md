@@ -18,7 +18,7 @@ In skincare, think of them as **highly efficient mail carriers**. They deliver "
 
 ## Why Is Korea Obsessed with Exosomes?
 
-K-Beauty is always looking for the next level of "Glass Skin." While traditional ingredients feed the skin, exosomes **program the skin to heal itself**.
+K-Beauty is always looking for the next level of "Glass Skin." While traditional ingredients feed the skin, exosomes **program the skin to heal itself.**.
 
 In Korea, "Exosome Skin Boosters" (injectable treatments) have become as popular as Rejuran Healer (PDRN). Now, this technology is being bottled into topical ampoules and creams for home use.
 

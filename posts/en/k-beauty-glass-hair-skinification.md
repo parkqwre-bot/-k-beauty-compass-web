@@ -22,7 +22,7 @@ At its core, skinification champions a "scalp-first" philosophy.[4][9][8] Just a
 
 ### Key Principles of K-Beauty Haircare (Skinification in Action)
 
-1.  **Scalp Health is Paramount:** K-Beauty haircare emphasizes maintaining a balanced and healthy scalp. This includes regular exfoliation to remove dead skin cells and impurities, ensuring hair follicles are clear and ready for optimal growth.[4][5][9]
+1.  **Scalp Health is Paramount:** K-Beauty haircare emphasizes maintaining a balanced and healthy scalp. This includes regular exfoliation to remove dead skin cells and impurities, ensuring hair follicles are clear and ready for optimal growth.[4][9]
 2.  **Targeted Ingredients:** Drawing from skincare, hair skinification incorporates active ingredients previously reserved for facial products. Look for ingredients like:
     *   **Hyaluronic Acid:** A powerful humectant that attracts and retains moisture, hydrating dry hair and scalp.[7]
     *   **Ceramides:** Help lock moisture into hair, strengthen the hair barrier, and protect against damage.[5][10]

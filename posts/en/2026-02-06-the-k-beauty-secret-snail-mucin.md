@@ -1,6 +1,6 @@
 ---
 title: The K-Beauty Secret: Unlocking the Power of Snail Mucin for Radiant Skin
-date: 2026-02-06
+date: '2026-02-06'
 description: Discover the incredible benefits of snail mucin, a beloved K-Beauty ingredient, for hydration, repair, and achieving glass skin.
 coverImage: /images/blog/snail-mucin-cover.jpg
 tags: [K-Beauty, Snail Mucin, Skincare, Hydration, Anti-aging, Glass Skin]

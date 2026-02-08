@@ -39,4 +39,4 @@ Choosing the right ampoule is key to achieving the best results.
 
 ## The Takeaway
 
-Korean ampoules are a powerful addition to any skincare routine, offering a targeted solution for almost any skin concern. By understanding their potency and choosing the right ingredients for your skin type, you can unlock a new level of radiance and health. Don't be afraid to give your skin the booster shot it deserves!
+Korean ampoules are a fantastic addition to any skincare routine, offering a targeted solution for almost any skin concern. By understanding their potency and choosing the right ingredients for your skin type, you can unlock a new level of radiance and health. Don't be afraid to give your skin the booster shot it deserves!

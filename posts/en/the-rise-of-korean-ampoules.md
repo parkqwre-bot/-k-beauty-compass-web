@@ -38,4 +38,4 @@ Because of their high concentration, ampoules are typically used in the evening 
 
 ### The Verdict: A Game-Changer for Your Skin
 
-Korean ampoules are more than just a trend; they are a testament to the K-beauty philosophy of targeted, effective skincare. By providing a concentrated dose of powerful ingredients, they can rapidly accelerate your journey to achieving healthy, radiant, "glass skin." If your skin is in a slump, an ampoule might be the exact SOS treatment it needs to get back its glow.
+Korean ampoules are more than just a trend; they are a testament to the K-beauty philosophy of targeted, effective skincare. By providing a concentrated blast of powerful ingredients, they can rapidly accelerate your journey to achieving healthy, radiant, "glass skin." If your skin is in a slump, an ampoule might be the exact SOS treatment it needs to get back its glow.

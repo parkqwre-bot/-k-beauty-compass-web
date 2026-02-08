@@ -1,6 +1,8 @@
 ---
 title: 'The Ultimate Guide to Korean Sun Sticks: Your 2025 Skincare Essential'
 date: '2025-11-13'
+description: 'Tired of messy sunscreen lotions? Discover the magic of Korean sun sticks. Learn why these portable, hygienic, and effective sunscreens are the future of sun care.'
+coverImage: 'https://images.pexels.com/photos/7262995/pexels-photo-7262995.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
 ---
 
 Korean skincare has taken the world by storm, and for good reason. With their innovative formulas, gentle ingredients, and effective results, K-beauty products have become a staple in many skincare routines. Among the plethora of products, one item has seen a meteoric rise in popularity: the sun stick. As we look towards 2025, the Korean sun stick is poised to become an indispensable part of your daily skincare arsenal.
