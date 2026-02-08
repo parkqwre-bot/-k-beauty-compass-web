@@ -8,31 +8,47 @@ const postsDirectory = path.join(process.cwd(), 'posts');
 
 export function getSortedPostsData(locale: string) {
   const fullPath = path.join(postsDirectory, locale);
-  const fileNames = fs.readdirSync(fullPath);
+  const fileNames = fs.readdirSync(fullPath); // Note: fs.readdirSync can throw if directory doesn't exist/is inaccessible
       const allPostsData = fileNames.map((fileName) => {
         const id = fileName.replace(/\.md$/, '');
         const fullFilePath = path.join(fullPath, fileName);
-        const fileContents = fs.readFileSync(fullFilePath, 'utf8');
+        let fileContents: string;
+        try {
+          fileContents = fs.readFileSync(fullFilePath, 'utf8');
+        } catch (readError) {
+          console.error(`Error reading file for post ${id} in locale ${locale} during getSortedPostsData:`, readError);
+          return {
+            id,
+            date: '2000-01-01', // Fallback date, will sort to bottom
+            title: `Error: Post '${id}' not found or unreadable.`,
+            thumbnail: '',
+            description: 'This post could not be loaded due to a file read error.',
+            isError: true, // Mark as an error post
+          };
+        }
   
         try {
           const matterResult = matter(fileContents);
           return {
             id,
             ...(matterResult.data as { date: string; title: string; thumbnail: string; description: string }),
+            isError: false, // Mark as not an error post
           };
         } catch (e) {
-          console.error(`Error parsing frontmatter for file: ${fileName}`, e);
+          console.error(`Error parsing frontmatter for file: ${fileName} in locale ${locale} during getSortedPostsData:`, e);
           // Return a minimal valid structure for posts that fail to parse
           return {
             id,
-            date: '2000-01-01', // Fallback date
-            title: `Error loading post: ${id}`,
+            date: '2000-01-01', // Fallback date, will sort to bottom
+            title: `Error: Frontmatter parsing failed for '${id}'.`,
             thumbnail: '',
-            description: 'This post has a frontmatter parsing error.',
+            description: 'This post has a frontmatter parsing error. Please check YAML syntax.',
+            isError: true, // Mark as an error post
           };
         }
       });
   return allPostsData.sort((a, b) => {
+    // Error posts with date '2000-01-01' will naturally sort to the bottom
     if (a.date < b.date) {
       return 1;
     } else {
