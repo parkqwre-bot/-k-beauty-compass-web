@@ -8,7 +8,8 @@ const postsDirectory = path.join(process.cwd(), 'posts');
 
 export function getSortedPostsData(locale: string) {
   const fullPath = path.join(postsDirectory, locale);
-  const fileNames = fs.readdirSync(fullPath); // Note: fs.readdirSync can throw if directory doesn't exist/is inaccessible
+  // Filter out files ending with .bak before processing
+  const fileNames = fs.readdirSync(fullPath).filter(name => !name.endsWith('.bak')); 
       const allPostsData = fileNames.map((fileName) => {
         const id = fileName.replace(/\.md$/, '');
         const fullFilePath = path.join(fullPath, fileName);
@@ -29,9 +30,15 @@ export function getSortedPostsData(locale: string) {
   
         try {
           const matterResult = matter(fileContents);
+          // Ensure date is a string for React rendering
+          const postDate = matterResult.data.date instanceof Date 
+                           ? matterResult.data.date.toISOString().split('T')[0] 
+                           : String(matterResult.data.date);
+
           return {
             id,
-            ...(matterResult.data as { date: string; title: string; thumbnail: string; description: string }),
+            ...matterResult.data as { date: string; title: string; thumbnail: string; description: string },
+            date: postDate, // Use the stringified date
             isError: false, // Mark as not an error post
           };
         } catch (e) {
@@ -59,7 +66,8 @@ export function getSortedPostsData(locale: string) {
 
 export function getAllPostIds(locale: string) {
   const fullPath = path.join(postsDirectory, locale);
-  const fileNames = fs.readdirSync(fullPath);
+  // Filter out files ending with .bak
+  const fileNames = fs.readdirSync(fullPath).filter(name => !name.endsWith('.bak'));
   return fileNames.map((fileName) => {
     return {
       params: {
@@ -71,6 +79,19 @@ export function getAllPostIds(locale: string) {
 }
 
 export async function getPostData(id: string, locale: string) {
+  // If the id contains .bak, then it's a backup file, prevent processing
+  if (id.endsWith('.bak')) {
+      console.error(`Attempted to load a backup post: ${id} in locale ${locale}`);
+      return {
+        id,
+        contentHtml: '<h1>Error loading post content.</h1><p>This is a backup file and cannot be viewed.</p>',
+        date: '2000-01-01',
+        title: `Error: Backup file requested: ${id}`,
+        thumbnail: '',
+        description: 'This post is a backup and not meant for viewing.',
+      };
+  }
+
   const fullPath = path.join(postsDirectory, locale, `${id}.md`);
   let fileContents: string;
   try {
@@ -105,9 +126,15 @@ export async function getPostData(id: string, locale: string) {
   const processedContent = await remark().use(html).process(matterResult.content);
   const contentHtml = processedContent.toString();
 
+  // Ensure date is a string for React rendering
+  const postDate = matterResult.data.date instanceof Date 
+                       ? matterResult.data.date.toISOString().split('T')[0] 
+                       : String(matterResult.data.date);
+
   return {
     id,
     contentHtml,
-    ...(matterResult.data as { date: string; title: string; thumbnail: string; description: string }),
+    ...matterResult.data as { date: string; title: string; thumbnail: string; description: string },
+    date: postDate, // Use the stringified date
   };
 }
