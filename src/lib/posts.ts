@@ -1,4 +1,3 @@
-// Temporary comment to force a clean Vercel deployment
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
