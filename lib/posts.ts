@@ -4,10 +4,7 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 
-// Gets the data for all posts in a specific language, sorted by date
-export function getSortedPostsData(lang: string) {
-  const postsDirectory = path.join(process.cwd(), 'posts', lang);
-  const fileNames = fs.readdirSync(postsDirectory);
+  const fileNames = fs.readdirSync(postsDirectory).filter(name => name.endsWith('.md'));
   const allPostsData = fileNames.map((fileName) => {
     const id = fileName.replace(/\.md$/, '');
     const fullPath = path.join(postsDirectory, fileName);
@@ -17,6 +14,7 @@ export function getSortedPostsData(lang: string) {
     return {
       id,
       ...(matterResult.data as { date: string; title: string }),
+      date: String(matterResult.data.date), // Ensure date is a string
     };
   });
 
@@ -37,7 +35,7 @@ export function getAllPostIds() {
   for (const lang of languages) {
     const postsDirectory = path.join(process.cwd(), 'posts', lang);
     if (fs.existsSync(postsDirectory)) {
-      const fileNames = fs.readdirSync(postsDirectory);
+      const fileNames = fs.readdirSync(postsDirectory).filter(name => name.endsWith('.md'));
       const paths = fileNames.map((fileName) => ({
         params: {
           lang,
@@ -67,5 +65,6 @@ export async function getPostData(lang: string, slug: string) {
     slug,
     contentHtml,
     ...(matterResult.data as { date: string; title: string }),
+    date: String(matterResult.data.date), // Ensure date is a string
   };
 }
