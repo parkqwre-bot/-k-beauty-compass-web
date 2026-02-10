@@ -4,6 +4,9 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 
+// Gets the data for all posts in a specific language, sorted by date
+export function getSortedPostsData(lang: string) {
+  const postsDirectory = path.join(process.cwd(), 'posts', lang);
   const fileNames = fs.readdirSync(postsDirectory).filter(name => name.endsWith('.md'));
   const allPostsData = fileNames.map((fileName) => {
     const id = fileName.replace(/\.md$/, '');
